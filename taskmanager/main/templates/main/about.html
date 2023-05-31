@@ -5,5 +5,20 @@
 {% endblock %}
 
 {% block content %}
-Наша зуботехническая лаборатория занимается изготовлением разных зуботехнических изделий c 2012 года. По условиям подробнее звоните по телефону 8-9180-423-50-44.Находимся по адресу г.Новосибирск, ул.Волховская 33\1.
+
+      <h1>О нас</h1>
+    {% if tasks %}
+      {% for el in tasks %}
+        <div class="alert alert-warning mt-2">
+          <h3>{{el.greeting}}</h3>
+          <p>{{el.email}}</p>
+            <p>{{el.tel}}</p>
+            {% if el.image %}
+            <img src="{{ MEDIA_URL }}{{ el.image.url }}">
+            {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+        <p>Прайс-лист на реконструкции</p>
+    {% endif %}
 {% endblock %}

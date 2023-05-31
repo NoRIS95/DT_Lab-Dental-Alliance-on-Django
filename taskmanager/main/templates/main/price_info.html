@@ -11,6 +11,9 @@
         <div class="alert alert-warning mt-2">
           <h3>{{el.name}}</h3>
           <p>{{el.price}}</p>
+            {% if el.image %}
+            <img src="{{ MEDIA_URL }}{{ el.image.url }}">
+            {% endif %}
         </div>
       {% endfor %}
     {% else %}
